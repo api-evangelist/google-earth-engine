@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gee": "https://earthengine.googleapis.com/v1/",
+    "EarthEngineAsset": "schema:Dataset",
+    "ImageCollection": "schema:DataCatalog",
+    "name": "schema:name",
+    "id": "schema:identifier",
+    "title": "schema:headline",
+    "description": "schema:description",
+    "type": "schema:additionalType",
+    "updateTime": {
+      "@id": "schema:dateModified",
+      "@type": "schema:DateTime"
+    },
+    "startTime": {
+      "@id": "schema:temporalCoverage",
+      "@type": "schema:DateTime"
+    },
+    "endTime": {
+      "@id": "schema:expires",
+      "@type": "schema:DateTime"
+    },
+    "geometry": "schema:spatialCoverage",
+    "sizeBytes": "schema:contentSize",
+    "bands": "schema:variableMeasured",
+    "crsCode": "schema:variableMeasured",
+    "properties": "schema:additionalProperty"
+  }
+}

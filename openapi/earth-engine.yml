@@ -1,0 +1,429 @@
+openapi: 3.1.0
+info:
+  title: Google Earth Engine REST API
+  description: >-
+    The Google Earth Engine REST API provides programmatic access to Earth
+    Engine's planetary-scale geospatial analysis capabilities. You can manage
+    projects, compute satellite imagery analysis, export data, work with image
+    collections, feature collections, and perform large-scale geospatial
+    computations.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/earth-engine
+servers:
+  - url: https://earthengine.googleapis.com/v1
+paths:
+  /projects/{project}/assets:
+    get:
+      operationId: listAssets
+      summary: List assets
+      description: Lists the assets in a project or folder.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAssetsResponse'
+  /projects/{project}/assets/{assetId}:
+    get:
+      operationId: getAsset
+      summary: Get an asset
+      description: Gets an asset by ID.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: assetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarthEngineAsset'
+    delete:
+      operationId: deleteAsset
+      summary: Delete an asset
+      description: Deletes an asset.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: assetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/image:computePixels:
+    post:
+      operationId: computePixels
+      summary: Compute pixels
+      description: >-
+        Computes pixels for an image and returns them as raw bytes or as a
+        GeoTIFF.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+                  description: The image to compute.
+                fileFormat:
+                  type: string
+                  enum:
+                    - IMAGE_FILE_FORMAT_UNSPECIFIED
+                    - GEO_TIFF
+                    - TF_RECORD_IMAGE
+                    - MULTI_BAND_IMAGE_TILE
+                    - NUMPY_PIXELS
+                grid:
+                  type: object
+                  properties:
+                    dimensions:
+                      type: object
+                      properties:
+                        width:
+                          type: integer
+                        height:
+                          type: integer
+                    affineTransform:
+                      type: object
+                    crsCode:
+                      type: string
+                bandIds:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/image:export:
+    post:
+      operationId: exportImage
+      summary: Export an image
+      description: >-
+        Exports an image to Google Cloud Storage or Google Drive.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+                description:
+                  type: string
+                fileExportOptions:
+                  type: object
+                  properties:
+                    fileFormat:
+                      type: string
+                    driveDestination:
+                      type: object
+                      properties:
+                        folder:
+                          type: string
+                        filenamePrefix:
+                          type: string
+                    gcsDestination:
+                      type: object
+                      properties:
+                        bucket:
+                          type: string
+                        filenamePrefix:
+                          type: string
+                maxPixels:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/table:computeFeatures:
+    post:
+      operationId: computeFeatures
+      summary: Compute features
+      description: Computes features for a table and returns them.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/table:export:
+    post:
+      operationId: exportTable
+      summary: Export a table
+      description: Exports a table to Google Cloud Storage or Google Drive.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+                description:
+                  type: string
+                fileExportOptions:
+                  type: object
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/value:compute:
+    post:
+      operationId: computeValue
+      summary: Compute a value
+      description: Computes a value from an Earth Engine expression.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/maps:
+    post:
+      operationId: createMap
+      summary: Create a map
+      description: Creates a map ID for visualization.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: object
+                fileFormat:
+                  type: string
+                bandIds:
+                  type: array
+                  items:
+                    type: string
+                visualizationOptions:
+                  type: object
+                  properties:
+                    ranges:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          min:
+                            type: number
+                          max:
+                            type: number
+                    paletteColors:
+                      type: array
+                      items:
+                        type: string
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/operations:
+    get:
+      operationId: listOperations
+      summary: List operations
+      description: Lists operations for a project.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /projects/{project}/operations/{operationId}:
+    get:
+      operationId: getOperation
+      summary: Get an operation
+      description: Gets the status of a long-running operation.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: operationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+components:
+  schemas:
+    EarthEngineAsset:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - TYPE_UNSPECIFIED
+            - IMAGE
+            - IMAGE_COLLECTION
+            - TABLE
+            - FOLDER
+            - CLASSIFIER
+        name:
+          type: string
+          description: The asset name in the format projects/*/assets/**.
+        id:
+          type: string
+          description: The asset ID.
+        updateTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        geometry:
+          type: object
+          description: The spatial footprint associated with the asset.
+        sizeBytes:
+          type: string
+        bands:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              dataType:
+                type: object
+                properties:
+                  precision:
+                    type: string
+                  range:
+                    type: object
+                    properties:
+                      min:
+                        type: number
+                      max:
+                        type: number
+              grid:
+                type: object
+                properties:
+                  dimensions:
+                    type: object
+                    properties:
+                      width:
+                        type: integer
+                      height:
+                        type: integer
+                  crsCode:
+                    type: string
+        properties:
+          type: object
+          additionalProperties: true
+        title:
+          type: string
+        description:
+          type: string
+    ListAssetsResponse:
+      type: object
+      properties:
+        assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/EarthEngineAsset'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/earthengine: View and manage your Earth Engine data
+            https://www.googleapis.com/auth/earthengine.readonly: View your Earth Engine data
+            https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
+security:
+  - oauth2: []

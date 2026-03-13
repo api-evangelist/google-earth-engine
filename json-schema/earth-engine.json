@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-earth-engine/refs/heads/main/json-schema/earth-engine.json",
+  "title": "Earth Engine Asset",
+  "description": "An asset resource from the Google Earth Engine REST API representing an image, image collection, table, or folder.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["TYPE_UNSPECIFIED", "IMAGE", "IMAGE_COLLECTION", "TABLE", "FOLDER", "CLASSIFIER"],
+      "description": "The type of the asset."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the asset in the format projects/*/assets/**."
+    },
+    "id": {
+      "type": "string",
+      "description": "The asset ID."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last time the asset was updated."
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The start time of the data acquisition."
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The end time of the data acquisition."
+    },
+    "geometry": {
+      "type": "object",
+      "description": "The spatial footprint of the asset as a GeoJSON geometry.",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "type": "array"
+        }
+      }
+    },
+    "sizeBytes": {
+      "type": "string",
+      "description": "The size of the asset in bytes."
+    },
+    "bands": {
+      "type": "array",
+      "description": "Information about the data bands of an image asset.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The band ID."
+          },
+          "dataType": {
+            "type": "object",
+            "properties": {
+              "precision": {
+                "type": "string",
+                "enum": ["PRECISION_UNSPECIFIED", "INT", "FLOAT", "DOUBLE"]
+              },
+              "range": {
+                "type": "object",
+                "properties": {
+                  "min": { "type": "number" },
+                  "max": { "type": "number" }
+                }
+              }
+            }
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "dimensions": {
+                "type": "object",
+                "properties": {
+                  "width": { "type": "integer" },
+                  "height": { "type": "integer" }
+                }
+              },
+              "crsCode": {
+                "type": "string",
+                "description": "The coordinate reference system code."
+              }
+            }
+          }
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Key-value properties associated with the asset."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the asset."
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the asset."
+    }
+  },
+  "required": ["type", "name"]
+}
