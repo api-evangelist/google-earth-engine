@@ -2,6 +2,11 @@
 
 The Google Earth Engine REST API provides programmatic access to Earth Engine's planetary-scale geospatial analysis platform. You can manage geospatial assets, compute satellite imagery analysis, export images and tables, create map visualizations, and perform large-scale environmental and geospatial computations using petabytes of satellite imagery and geospatial datasets.
 
+## Timestamps
+
+- **Created:** 2026-03-13
+- **Modified:** 2026-04-28
+
 ## Artifacts
 
 - **OpenAPI**: [openapi/earth-engine.yml](openapi/earth-engine.yml) - OpenAPI 3.1.0 specification for the Google Earth Engine REST API.
