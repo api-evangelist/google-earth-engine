@@ -36,14 +36,14 @@ apis:
         url: openapi/earth-engine.yml
       - type: Authentication
         url: https://developers.google.com/earth-engine/guides/auth
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/earth-engine/guides/access
       - type: JSONSchema
         url: json-schema/earth-engine.json
 common:
   - type: Portal
     url: https://earthengine.google.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developers.google.com/earth-engine/guides/access
   - type: Documentation
     url: https://developers.google.com/earth-engine
@@ -51,15 +51,15 @@ common:
     url: https://developers.google.com/earth-engine/guides/auth
   - type: Pricing
     url: https://earthengine.google.com/pricing/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://earthengine.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
   - type: Support
     url: https://developers.google.com/earth-engine/help
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/earth-engine.jsonld
 maintainers:
   - FN: Kin Lane
