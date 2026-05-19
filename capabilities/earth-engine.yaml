@@ -1,0 +1,562 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Earth Engine REST API
+  description: 'Google Earth Engine REST API. 11 operations. Lead operation: List assets. Self-contained Naftiko capability
+    covering one Google Earth Engine business surface.'
+  tags:
+  - Google Earth Engine
+  - Google Earth Engine REST API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_EARTH_ENGINE_API_KEY: GOOGLE_EARTH_ENGINE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: earth-engine
+    baseUri: https://earthengine.googleapis.com/v1
+    description: Google Earth Engine REST API business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-project-assets
+      path: /projects/{project}/assets
+      operations:
+      - name: listassets
+        method: GET
+        description: List assets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+    - name: projects-project-assets-assetId
+      path: /projects/{project}/assets/{assetId}
+      operations:
+      - name: getasset
+        method: GET
+        description: Get an asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: assetId
+          in: path
+          type: string
+          required: true
+      - name: deleteasset
+        method: DELETE
+        description: Delete an asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: assetId
+          in: path
+          type: string
+          required: true
+    - name: projects-project-image:computePixels
+      path: /projects/{project}/image:computePixels
+      operations:
+      - name: computepixels
+        method: POST
+        description: Compute pixels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-image:export
+      path: /projects/{project}/image:export
+      operations:
+      - name: exportimage
+        method: POST
+        description: Export an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-maps
+      path: /projects/{project}/maps
+      operations:
+      - name: createmap
+        method: POST
+        description: Create a map
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-operations
+      path: /projects/{project}/operations
+      operations:
+      - name: listoperations
+        method: GET
+        description: List operations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+    - name: projects-project-operations-operationId
+      path: /projects/{project}/operations/{operationId}
+      operations:
+      - name: getoperation
+        method: GET
+        description: Get an operation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: operationId
+          in: path
+          type: string
+          required: true
+    - name: projects-project-table:computeFeatures
+      path: /projects/{project}/table:computeFeatures
+      operations:
+      - name: computefeatures
+        method: POST
+        description: Compute features
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-table:export
+      path: /projects/{project}/table:export
+      operations:
+      - name: exporttable
+        method: POST
+        description: Export a table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: projects-project-value:compute
+      path: /projects/{project}/value:compute
+      operations:
+      - name: computevalue
+        method: POST
+        description: Compute a value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_EARTH_ENGINE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: earth-engine-rest
+    port: 8080
+    description: REST adapter for Google Earth Engine REST API. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects/{project}/assets
+      name: projects-project-assets
+      description: REST surface for projects-project-assets.
+      operations:
+      - method: GET
+        name: listassets
+        description: List assets
+        call: earth-engine.listassets
+        with:
+          project: rest.project
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/assets/{assetid}
+      name: projects-project-assets-assetid
+      description: REST surface for projects-project-assets-assetId.
+      operations:
+      - method: GET
+        name: getasset
+        description: Get an asset
+        call: earth-engine.getasset
+        with:
+          project: rest.project
+          assetId: rest.assetId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteasset
+        description: Delete an asset
+        call: earth-engine.deleteasset
+        with:
+          project: rest.project
+          assetId: rest.assetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/image-computepixels
+      name: projects-project-image-computepixels
+      description: REST surface for projects-project-image:computePixels.
+      operations:
+      - method: POST
+        name: computepixels
+        description: Compute pixels
+        call: earth-engine.computepixels
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/image-export
+      name: projects-project-image-export
+      description: REST surface for projects-project-image:export.
+      operations:
+      - method: POST
+        name: exportimage
+        description: Export an image
+        call: earth-engine.exportimage
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/maps
+      name: projects-project-maps
+      description: REST surface for projects-project-maps.
+      operations:
+      - method: POST
+        name: createmap
+        description: Create a map
+        call: earth-engine.createmap
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/operations
+      name: projects-project-operations
+      description: REST surface for projects-project-operations.
+      operations:
+      - method: GET
+        name: listoperations
+        description: List operations
+        call: earth-engine.listoperations
+        with:
+          project: rest.project
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/operations/{operationid}
+      name: projects-project-operations-operationid
+      description: REST surface for projects-project-operations-operationId.
+      operations:
+      - method: GET
+        name: getoperation
+        description: Get an operation
+        call: earth-engine.getoperation
+        with:
+          project: rest.project
+          operationId: rest.operationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/table-computefeatures
+      name: projects-project-table-computefeatures
+      description: REST surface for projects-project-table:computeFeatures.
+      operations:
+      - method: POST
+        name: computefeatures
+        description: Compute features
+        call: earth-engine.computefeatures
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/table-export
+      name: projects-project-table-export
+      description: REST surface for projects-project-table:export.
+      operations:
+      - method: POST
+        name: exporttable
+        description: Export a table
+        call: earth-engine.exporttable
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{project}/value-compute
+      name: projects-project-value-compute
+      description: REST surface for projects-project-value:compute.
+      operations:
+      - method: POST
+        name: computevalue
+        description: Compute a value
+        call: earth-engine.computevalue
+        with:
+          project: rest.project
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: earth-engine-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Earth Engine REST API. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-assets
+      description: List assets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: earth-engine.listassets
+      with:
+        project: tools.project
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-asset
+      description: Get an asset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: earth-engine.getasset
+      with:
+        project: tools.project
+        assetId: tools.assetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-asset
+      description: Delete an asset
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: earth-engine.deleteasset
+      with:
+        project: tools.project
+        assetId: tools.assetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: compute-pixels
+      description: Compute pixels
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.computepixels
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: export-image
+      description: Export an image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.exportimage
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-map
+      description: Create a map
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.createmap
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-operations
+      description: List operations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: earth-engine.listoperations
+      with:
+        project: tools.project
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-operation
+      description: Get an operation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: earth-engine.getoperation
+      with:
+        project: tools.project
+        operationId: tools.operationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: compute-features
+      description: Compute features
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.computefeatures
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: export-table
+      description: Export a table
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.exporttable
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: compute-value
+      description: Compute a value
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: earth-engine.computevalue
+      with:
+        project: tools.project
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
