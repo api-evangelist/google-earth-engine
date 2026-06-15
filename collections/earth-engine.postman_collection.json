@@ -1,0 +1,1256 @@
+{
+  "item": [
+    {
+      "id": "346dff23-c426-4fcb-a287-4a6adc2f6099",
+      "name": "List assets",
+      "request": {
+        "name": "List assets",
+        "description": {
+          "content": "Lists the assets in a project or folder.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "assets"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "709bb95f-ca8c-40a6-8964-b43db1165a4c",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"assets\": [\n    {\n      \"type\": \"CLASSIFIER\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"updateTime\": \"1991-05-02T22:07:53.296Z\",\n      \"startTime\": \"1980-09-17T07:41:47.985Z\",\n      \"endTime\": \"2019-05-19T07:45:40.893Z\",\n      \"geometry\": {},\n      \"sizeBytes\": \"string\",\n      \"bands\": [\n        {\n          \"id\": \"string\",\n          \"dataType\": {\n            \"precision\": \"string\",\n            \"range\": {\n              \"min\": 2717.5077813080516,\n              \"max\": 3370.811821541054\n            }\n          },\n          \"grid\": {\n            \"dimensions\": {\n              \"width\": 8778,\n              \"height\": 6905\n            },\n            \"crsCode\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"dataType\": {\n            \"precision\": \"string\",\n            \"range\": {\n              \"min\": 5252.074671579388,\n              \"max\": 1552.069150251617\n            }\n          },\n          \"grid\": {\n            \"dimensions\": {\n              \"width\": 6877,\n              \"height\": 5762\n            },\n            \"crsCode\": \"string\"\n          }\n        }\n      ],\n      \"properties\": {\n        \"key_0\": 2687,\n        \"key_1\": 5724.6549597696\n      },\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"type\": \"IMAGE\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"updateTime\": \"2004-10-12T15:31:22.060Z\",\n      \"startTime\": \"1977-09-30T07:48:28.773Z\",\n      \"endTime\": \"2002-04-03T12:53:14.526Z\",\n      \"geometry\": {},\n      \"sizeBytes\": \"string\",\n      \"bands\": [\n        {\n          \"id\": \"string\",\n          \"dataType\": {\n            \"precision\": \"string\",\n            \"range\": {\n              \"min\": 2644.951388539122,\n              \"max\": 3664.9125736647115\n            }\n          },\n          \"grid\": {\n            \"dimensions\": {\n              \"width\": 5690,\n              \"height\": 5596\n            },\n            \"crsCode\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"dataType\": {\n            \"precision\": \"string\",\n            \"range\": {\n              \"min\": 3643.5617104640605,\n              \"max\": 8972.521851749578\n            }\n          },\n          \"grid\": {\n            \"dimensions\": {\n              \"width\": 3495,\n              \"height\": 1825\n            },\n            \"crsCode\": \"string\"\n          }\n        }\n      ],\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2585\n      },\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8dbd3154-7071-4caf-b01e-2740ccf05297",
+      "name": "Get an asset",
+      "request": {
+        "name": "Get an asset",
+        "description": {
+          "content": "Gets an asset by ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "assets",
+            ":assetId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "assetId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "772e7aa4-f75d-4ce3-a42b-a7ad593c52cf",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"type\": \"FOLDER\",\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"updateTime\": \"1967-05-12T17:35:53.893Z\",\n  \"startTime\": \"2012-08-21T00:57:14.032Z\",\n  \"endTime\": \"1989-09-14T12:27:28.390Z\",\n  \"geometry\": {},\n  \"sizeBytes\": \"string\",\n  \"bands\": [\n    {\n      \"id\": \"string\",\n      \"dataType\": {\n        \"precision\": \"string\",\n        \"range\": {\n          \"min\": 2066.784210700161,\n          \"max\": 8603.530682306435\n        }\n      },\n      \"grid\": {\n        \"dimensions\": {\n          \"width\": 2486,\n          \"height\": 5790\n        },\n        \"crsCode\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"dataType\": {\n        \"precision\": \"string\",\n        \"range\": {\n          \"min\": 1984.0190042137817,\n          \"max\": 8747.176636071756\n        }\n      },\n      \"grid\": {\n        \"dimensions\": {\n          \"width\": 3881,\n          \"height\": 6474\n        },\n        \"crsCode\": \"string\"\n      }\n    }\n  ],\n  \"properties\": {\n    \"key_0\": 2262\n  },\n  \"title\": \"string\",\n  \"description\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6a52c516-0fad-4ac7-9136-1b7197f13c4a",
+      "name": "Delete an asset",
+      "request": {
+        "name": "Delete an asset",
+        "description": {
+          "content": "Deletes an asset.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "assets",
+            ":assetId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "assetId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "4726ab20-0cda-436c-a6ea-caa73af753cc",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "960b27c3-5cb0-435a-a025-01c8b95126ef",
+      "name": "Compute pixels",
+      "request": {
+        "name": "Compute pixels",
+        "description": {
+          "content": "Computes pixels for an image and returns them as raw bytes or as a GeoTIFF.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "image:computePixels"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\",\n  \"fileFormat\": \"<string>\",\n  \"grid\": {\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\"\n    },\n    \"affineTransform\": \"<object>\",\n    \"crsCode\": \"<string>\"\n  },\n  \"bandIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "45fcf173-aedc-4b25-a106-0be528123274",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "image:computePixels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\",\n  \"fileFormat\": \"<string>\",\n  \"grid\": {\n    \"dimensions\": {\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\"\n    },\n    \"affineTransform\": \"<object>\",\n    \"crsCode\": \"<string>\"\n  },\n  \"bandIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "46d450fb-b889-4bd0-adae-d94b42abee5e",
+      "name": "Export an image",
+      "request": {
+        "name": "Export an image",
+        "description": {
+          "content": "Exports an image to Google Cloud Storage or Google Drive.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "image:export"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\",\n  \"description\": \"<string>\",\n  \"fileExportOptions\": {\n    \"fileFormat\": \"<string>\",\n    \"driveDestination\": {\n      \"folder\": \"<string>\",\n      \"filenamePrefix\": \"<string>\"\n    },\n    \"gcsDestination\": {\n      \"bucket\": \"<string>\",\n      \"filenamePrefix\": \"<string>\"\n    }\n  },\n  \"maxPixels\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d1d36e02-a13e-4f72-934d-c5a6798424b4",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "image:export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\",\n  \"description\": \"<string>\",\n  \"fileExportOptions\": {\n    \"fileFormat\": \"<string>\",\n    \"driveDestination\": {\n      \"folder\": \"<string>\",\n      \"filenamePrefix\": \"<string>\"\n    },\n    \"gcsDestination\": {\n      \"bucket\": \"<string>\",\n      \"filenamePrefix\": \"<string>\"\n    }\n  },\n  \"maxPixels\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f7d4ec41-6435-4c7e-b4eb-f425e308f598",
+      "name": "Compute features",
+      "request": {
+        "name": "Compute features",
+        "description": {
+          "content": "Computes features for a table and returns them.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "table:computeFeatures"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "8be4bef6-8d93-4acd-ab46-3b1f9a135b3c",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "table:computeFeatures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c596f76c-8dd8-4353-9e0b-145aba5d2afe",
+      "name": "Export a table",
+      "request": {
+        "name": "Export a table",
+        "description": {
+          "content": "Exports a table to Google Cloud Storage or Google Drive.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "table:export"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\",\n  \"description\": \"<string>\",\n  \"fileExportOptions\": \"<object>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "e9a9a49c-dcef-4a35-be48-cee7549bfbc2",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "table:export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\",\n  \"description\": \"<string>\",\n  \"fileExportOptions\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "72d2df89-7354-4995-801c-89ffc47fd5e7",
+      "name": "Compute a value",
+      "request": {
+        "name": "Compute a value",
+        "description": {
+          "content": "Computes a value from an Earth Engine expression.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "value:compute"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "714f6945-fde0-4171-9567-28656f3cd07f",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "value:compute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1973c9e7-8b8e-4a3d-b4dc-6986ddcd5287",
+      "name": "Create a map",
+      "request": {
+        "name": "Create a map",
+        "description": {
+          "content": "Creates a map ID for visualization.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "maps"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expression\": \"<object>\",\n  \"fileFormat\": \"<string>\",\n  \"bandIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"visualizationOptions\": {\n    \"ranges\": [\n      {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      }\n    ],\n    \"paletteColors\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "56d179bb-dabf-45ed-bfcf-d716beee0c83",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "maps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression\": \"<object>\",\n  \"fileFormat\": \"<string>\",\n  \"bandIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"visualizationOptions\": {\n    \"ranges\": [\n      {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      }\n    ],\n    \"paletteColors\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "09287f18-2877-41aa-b036-f306797333b2",
+      "name": "List operations",
+      "request": {
+        "name": "List operations",
+        "description": {
+          "content": "Lists operations for a project.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "operations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "161d3848-1575-47dc-9078-6d7b020d09f1",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "operations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d5c2ea6a-0992-458e-9ab9-eac608a19b04",
+      "name": "Get an operation",
+      "request": {
+        "name": "Get an operation",
+        "description": {
+          "content": "Gets the status of a long-running operation.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "projects",
+            ":project",
+            "operations",
+            ":operationId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "project",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "operationId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "44e7ae12-3e19-4527-ad62-51cc8b69fac2",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "operations",
+                ":operationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "operationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthengine.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/earthengine https://www.googleapis.com/auth/earthengine.readonly https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "abf09e2e-2e38-475c-9e44-c5475a0e32d4",
+    "name": "Google Earth Engine REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Earth Engine REST API provides programmatic access to Earth Engine's planetary-scale geospatial analysis capabilities. You can manage projects, compute satellite imagery analysis, export data, work with image collections, feature collections, and perform large-scale geospatial computations.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

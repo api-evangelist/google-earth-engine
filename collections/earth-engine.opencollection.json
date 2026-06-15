@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Earth Engine REST API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List assets",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/assets",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Lists the assets in a project or folder."
+    },
+    {
+      "info": {
+        "name": "Get an asset",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/assets/:assetId",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "assetId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Gets an asset by ID."
+    },
+    {
+      "info": {
+        "name": "Delete an asset",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/assets/:assetId",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "assetId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Deletes an asset."
+    },
+    {
+      "info": {
+        "name": "Compute pixels",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/image:computePixels",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Computes pixels for an image and returns them as raw bytes or as a GeoTIFF."
+    },
+    {
+      "info": {
+        "name": "Export an image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/image:export",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Exports an image to Google Cloud Storage or Google Drive."
+    },
+    {
+      "info": {
+        "name": "Compute features",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/table:computeFeatures",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Computes features for a table and returns them."
+    },
+    {
+      "info": {
+        "name": "Export a table",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/table:export",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Exports a table to Google Cloud Storage or Google Drive."
+    },
+    {
+      "info": {
+        "name": "Compute a value",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/value:compute",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Computes a value from an Earth Engine expression."
+    },
+    {
+      "info": {
+        "name": "Create a map",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/maps",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a map ID for visualization."
+    },
+    {
+      "info": {
+        "name": "List operations",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/operations",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Lists operations for a project."
+    },
+    {
+      "info": {
+        "name": "Get an operation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://earthengine.googleapis.com/v1/projects/:project/operations/:operationId",
+        "params": [
+          {
+            "name": "project",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "operationId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Gets the status of a long-running operation."
+    }
+  ],
+  "bundled": true
+}
