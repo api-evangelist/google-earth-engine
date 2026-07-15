@@ -39,6 +39,8 @@ apis:
       - type: JSONSchema
         url: json-schema/earth-engine.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-earth-engine-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-earth-engine-vulnerability-disclosure.yml
   - type: DomainSecurity
