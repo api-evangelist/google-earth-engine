@@ -1,18 +1,17 @@
 openapi: 3.1.0
 info:
-  title: Google Earth Engine REST API
-  description: >-
-    The Google Earth Engine REST API provides programmatic access to Earth
-    Engine's planetary-scale geospatial analysis capabilities. You can manage
-    projects, compute satellite imagery analysis, export data, work with image
-    collections, feature collections, and perform large-scale geospatial
-    computations.
+  title: Google Earth Engine REST Projects API
+  description: The Google Earth Engine REST API provides programmatic access to Earth Engine's planetary-scale geospatial analysis capabilities. You can manage projects, compute satellite imagery analysis, export data, work with image collections, feature collections, and perform large-scale geospatial computations.
   version: v1
   contact:
     name: Google
     url: https://developers.google.com/earth-engine
 servers:
-  - url: https://earthengine.googleapis.com/v1
+- url: https://earthengine.googleapis.com/v1
+security:
+- oauth2: []
+tags:
+- name: Projects
 paths:
   /projects/{project}/assets:
     get:
@@ -20,19 +19,19 @@ paths:
       summary: List assets
       description: Lists the assets in a project or folder.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -40,22 +39,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAssetsResponse'
+      tags:
+      - Projects
   /projects/{project}/assets/{assetId}:
     get:
       operationId: getAsset
       summary: Get an asset
       description: Gets an asset by ID.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: assetId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -63,37 +64,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EarthEngineAsset'
+      tags:
+      - Projects
     delete:
       operationId: deleteAsset
       summary: Delete an asset
       description: Deletes an asset.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: assetId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/image:computePixels:
     post:
       operationId: computePixels
       summary: Compute pixels
-      description: >-
-        Computes pixels for an image and returns them as raw bytes or as a
-        GeoTIFF.
+      description: Computes pixels for an image and returns them as raw bytes or as a GeoTIFF.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -106,11 +109,11 @@ paths:
                 fileFormat:
                   type: string
                   enum:
-                    - IMAGE_FILE_FORMAT_UNSPECIFIED
-                    - GEO_TIFF
-                    - TF_RECORD_IMAGE
-                    - MULTI_BAND_IMAGE_TILE
-                    - NUMPY_PIXELS
+                  - IMAGE_FILE_FORMAT_UNSPECIFIED
+                  - GEO_TIFF
+                  - TF_RECORD_IMAGE
+                  - MULTI_BAND_IMAGE_TILE
+                  - NUMPY_PIXELS
                 grid:
                   type: object
                   properties:
@@ -132,18 +135,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/image:export:
     post:
       operationId: exportImage
       summary: Export an image
-      description: >-
-        Exports an image to Google Cloud Storage or Google Drive.
+      description: Exports an image to Google Cloud Storage or Google Drive.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -178,17 +182,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/table:computeFeatures:
     post:
       operationId: computeFeatures
       summary: Compute features
       description: Computes features for a table and returns them.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -200,17 +206,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/table:export:
     post:
       operationId: exportTable
       summary: Export a table
       description: Exports a table to Google Cloud Storage or Google Drive.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -226,17 +234,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/value:compute:
     post:
       operationId: computeValue
       summary: Compute a value
       description: Computes a value from an Earth Engine expression.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -248,17 +258,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/maps:
     post:
       operationId: createMap
       summary: Create a map
       description: Creates a map ID for visualization.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -292,47 +304,53 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/operations:
     get:
       operationId: listOperations
       summary: List operations
       description: Lists operations for a project.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: pageSize
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
   /projects/{project}/operations/{operationId}:
     get:
       operationId: getOperation
       summary: Get an operation
       description: Gets the status of a long-running operation.
       parameters:
-        - name: project
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: operationId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
+      tags:
+      - Projects
 components:
   schemas:
     EarthEngineAsset:
@@ -341,12 +359,12 @@ components:
         type:
           type: string
           enum:
-            - TYPE_UNSPECIFIED
-            - IMAGE
-            - IMAGE_COLLECTION
-            - TABLE
-            - FOLDER
-            - CLASSIFIER
+          - TYPE_UNSPECIFIED
+          - IMAGE
+          - IMAGE_COLLECTION
+          - TABLE
+          - FOLDER
+          - CLASSIFIER
         name:
           type: string
           description: The asset name in the format projects/*/assets/**.
@@ -425,5 +443,3 @@ components:
             https://www.googleapis.com/auth/earthengine: View and manage your Earth Engine data
             https://www.googleapis.com/auth/earthengine.readonly: View your Earth Engine data
             https://www.googleapis.com/auth/cloud-platform: View and manage your data across Google Cloud Platform services
-security:
-  - oauth2: []
