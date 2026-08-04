@@ -1,0 +1,14 @@
+{
+  "provider": "google-earth-engine",
+  "sources": [
+    "google-earth-engine-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-earth-engine-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
