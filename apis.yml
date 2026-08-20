@@ -40,6 +40,8 @@ apis:
   humanURL: https://developers.google.com/earth-engine
   baseURL: https://earthengine.googleapis.com/v1
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
