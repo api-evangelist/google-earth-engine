@@ -67,6 +67,8 @@ apis:
   - type: JSONSchema
     url: json-schema/earth-engine.json
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/google-earth-engine-rest/overview
   - type: AgenticAccess
@@ -104,3 +106,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: google
+x-relationship: product

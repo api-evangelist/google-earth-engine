@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Earth Engine REST Projects API
   description: The Google Earth Engine REST API provides programmatic access to Earth Engine's planetary-scale geospatial analysis capabilities. You can manage projects, compute satellite imagery analysis, export data, work with image collections, feature collections, and perform large-scale geospatial computations.
