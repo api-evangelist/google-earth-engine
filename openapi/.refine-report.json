@@ -1,7 +1,7 @@
 {
   "provider": "google-earth-engine",
   "sources": [
-    "google-earth-engine-projects-api-openapi.yml"
+    "_original/earth-engine.yml"
   ],
   "outputs": [
     "google-earth-engine-projects-api-openapi.yml"
@@ -10,8 +10,23 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-earth-engine-projects-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "earth-engine.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "earth-engine.yml: tagged paths GET /projects/{project}/assets -> Projects",
+    "earth-engine.yml: tagged paths GET /projects/{project}/assets/{assetId} -> Projects",
+    "earth-engine.yml: tagged paths DELETE /projects/{project}/assets/{assetId} -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/image:computePixels -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/image:export -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/table:computeFeatures -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/table:export -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/value:compute -> Projects",
+    "earth-engine.yml: tagged paths POST /projects/{project}/maps -> Projects",
+    "earth-engine.yml: tagged paths GET /projects/{project}/operations -> Projects",
+    "earth-engine.yml: tagged paths GET /projects/{project}/operations/{operationId} -> Projects",
+    "earth-engine.yml: declared missing tag: Projects",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-earth-engine-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
