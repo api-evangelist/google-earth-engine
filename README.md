@@ -1,4 +1,4 @@
-# Google Earth Engine REST (google-earth-engine)
+# Google Earth Engine REST
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,150 @@
 
 The Google Earth Engine REST API provides programmatic access to Earth Engine's planetary-scale geospatial analysis platform. You can manage geospatial assets, compute satellite imagery analysis, export images and tables, create map visualizations, and perform large-scale environmental and geospatial computations using petabytes of satellite imagery and geospatial datasets.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-earth-engine/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-earth-engine/refs/heads/main/apis.yml)
+**Areas:** Climate · Earth Observation · Environmental · Geospatial · GIS · Google · Remote Sensing · Satellite Imagery
 
-## Scope
+## Google Earth Engine REST on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Earth Engine REST is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-earth-engine/](https://apis.io/providers/google-earth-engine/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Climate
-- Earth Observation
-- Environmental
-- Geospatial
-- GIS
-- Google
-- Remote Sensing
-- Satellite Imagery
+- [Google Earth Engine REST Projects API](https://apis.io/apis/google-earth-engine/google-earth-engine-projects-api/) — The Projects API from Google Earth Engine REST — 10 operation(s) for projects.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Google Earth Engine REST API v1
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Earth Engine REST API provides access to Google's geospatial analysis platform. Manage assets, compute imagery, export data, and create map tiles for visualization of satellite and geospatial datasets.
+- [Google Earth Engine Agentic Access](https://apis.io/agentic-access/google-earth-engine/google-earth-engine-agentic-access/)
 
-- **Human URL:** [https://developers.google.com/earth-engine](https://developers.google.com/earth-engine)
-- **Base URL:** `https://earthengine.googleapis.com/v1`
+#### JSON Schema (1)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://developers.google.com/earth-engine/reference/rest)
-- [OpenAPI](openapi/earth-engine.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/earth-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/earth-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://developers.google.com/earth-engine/guides/auth)
-- [Getting Started](https://developers.google.com/earth-engine/guides/access)
-- [JSON Schema](json-schema/earth-engine.json) — [JSON Schema](https://json-schema.org/specification)
+- [Earth Engine Asset](https://apis.io/schemas/google-earth-engine/earth-engine/)
 
-## Common Properties
+#### JSON-LD (1)
 
-- [GitHub Organization](https://github.com/google)
-- [Portal](https://earthengine.google.com/)
-- [Getting Started](https://developers.google.com/earth-engine/guides/access)
+Linked-data contexts for the provider's vocabulary.
+
+- [Earth Engine Context](https://apis.io/jsonld/google-earth-engine/earth-engine/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Google Earth Engine REST API](https://apis.io/collections/google-earth-engine/open-earth-engine/)
+- [Google Earth Engine REST Projects API](https://apis.io/collections/google-earth-engine/open-google-earth-engine-projects-api/)
+- [Google Earth Engine REST Projects API](https://apis.io/collections/google-earth-engine/postman-google-earth-engine-projects-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Earth Engine REST — jsonschema rules](https://apis.io/rules/google-earth-engine/google-earth-engine-jsonschema-spectral-rules/)
+- [Google Earth Engine REST API Rules](https://apis.io/rules/google-earth-engine/google-earth-engine-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Earth Engine Authentication](https://apis.io/security/google-earth-engine/google-earth-engine-authentication/)
+- [Google Earth Engine Domain Security](https://apis.io/security/google-earth-engine/google-earth-engine-domain-security/)
+- [Google Earth Engine Vulnerability Disclosure](https://apis.io/security/google-earth-engine/google-earth-engine-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Earth Engine Scopes](https://apis.io/scopes/google-earth-engine/google-earth-engine-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Earth Engine Plans Pricing](https://apis.io/plans/google-earth-engine/google-earth-engine-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Earth Engine Rate Limits](https://apis.io/rate-limits/google-earth-engine/google-earth-engine-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Earth Engine Finops](https://apis.io/finops/google-earth-engine/google-earth-engine-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
 - [Documentation](https://developers.google.com/earth-engine)
-- [Authentication](https://developers.google.com/earth-engine/guides/auth)
+- [Getting started](https://developers.google.com/earth-engine/guides/access)
 - [Pricing](https://earthengine.google.com/pricing/)
-- [Terms of Service](https://earthengine.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [Status Page](https://status.cloud.google.com/)
 - [Support](https://developers.google.com/earth-engine/help)
-- [JSON-LD](json-ld/earth-engine.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Terms of service](https://earthengine.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/google)
+- [Status](https://status.cloud.google.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 46.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 58.1 |
+| Contract governance | 13.6 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 28.9 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-earth-engine/](https://apis.io/providers/google-earth-engine/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Earth Engine REST: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-earth-engine/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
